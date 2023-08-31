@@ -51,3 +51,19 @@ def profile(request, username):
     }
 
     return render(request, 'accounts/profile.html', context)
+
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def follow(request, username):
+    User = get_user_model()
+
+    me = request.user
+    you = User.objects.get(username=username)
+
+    if me in you.followers.all():
+        me.followings.remove(you)
+    else:
+        me.followings.add(you)
+
+    return redirect('accounts:profile', username=username)
