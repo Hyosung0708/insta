@@ -75,21 +75,20 @@
         <a class="navbar-brand" href="{% url 'posts:index' %}"><img style="width: 100px"
                                                  src="https://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png">
         </a>
-        <input class="form-control me-2" style="width: 400px" type="search" placeholder="Search" aria-label="Search">
+        <form action="{% url 'accounts:search_profile' %}" method="GET"> 
+          <input class="form-control me-2" style="width: 400px;display: inline;" type="search" placeholder="Search" aria-label="Search" name="username">
+          <input type="submit" value="찾아보기">
+        </form>
         <div style="display: flex">
             <a href="{% url 'accounts:profile' username=user %}" style="color: black"><span class="material-icons"
-                                                      style="padding-right: 10px"> home</span></a>
+                                                      style="padding-right: 10px"> home </span></a>
             <a href="{% url 'posts:create' %}" style="color: black"><span class="bi bi-plus-circle"
-                                                        style="padding-right: 10px"></span></a>
+                                                        style="padding-right: 10px"> </span></a>
+            <a href="{% url 'accounts:logout' %}" style="color: black"><span class="bi bi-x-lg"
+                                                          style="padding-right: 10px"></span></a>
+
+                                                        
             <!-- <span id="nav_bar_add_box" class="material-icons-outlined" style="padding-right: 10px" a class="nav-link" href="{% url 'posts:create' %}">add_box</span> -->
-
-            <!-- <div class="dropdown">
-                <a href="#" role="button" id="dropdownMenuLink"
-                   data-bs-toggle="dropdown" aria-expanded="false">
-                    <div class="box" style="width: 25px; height: 25px"> -->
-
-                        <!-- <img class="profile"
-                             src="{% get_media_prefix %}{{ user.profile_image }}"> -->
 
                     </div>
                 </a>
@@ -101,6 +100,10 @@
                     </li>
                     <li><a class="dropdown-item" href="/user/logout">로그아웃</a></li>
                 </ul> -->
+                <html>
+                  <body style="background-color:#F2F2F2">
+                  </body>
+                </html>
             </div>
         </div>
     </div>

@@ -14,7 +14,7 @@
         {% else %}
             <i class="bi bi-heart heart" data-post-id="{{post.id}}">{{post.like_users.all|length}}</i>
         {% endif %}
-        명이 좋아합니다.
+         명이 좋아합니다.
 
         <p class="card-text">{{post.content}}</p>
         <p class="card-text">{{post.created_at|timesince}}</p>
@@ -25,7 +25,7 @@
         <form action="{% url 'posts:comment_create' post_id=post.id %}" method="POST">
             {% csrf_token %}
             {% bootstrap_form comment_form%}
-            <input type="submit">
+            <input type="submit" value="댓글 추가">
         </form>
         <hr>
         {% endif %}
